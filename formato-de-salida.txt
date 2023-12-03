@@ -1,0 +1,62 @@
+Formato de salida de la práctica 1
+----------------------------------
+
+Para unificar un único formato de salida para todos y que las soluciones entregadas sean fáciles de comparar con los resultados obtenidos por los profesores hemos establecido un formato de salida muy básico, que consiste en proporcionar unas estadísticas para cada persona a rescatar y unas estadísticas finales con los valores medios obtenidos en cada rescate. En concreto para cada rescate se debe indicar: el número de nodos generados, explorados y expandidos; el tiempo empleado en la búsqueda; y la longitud (o profundidad), el coste y la secuencia de acciones de la solución obtenida.
+Además, cada problema, un resumen con los valores medios de los datos anteriores.
+
+Por ejemplo, para el problema establecido en el archivo 'instance-30-18-12-3-12-2023.json' y que contiene los siguientes datos:
+{
+	"city": 
+		{
+		"rows": 30, 
+		"columns": 18, 
+		"blocked": [[17, 3], [21, 6], [5, 8], [26, 2], [23, 4], [0, 5], [17, 14], [7, 9], [23, 9], [28, 8], [12, 17], [17, 2]]
+		}, 
+	"departure": [17, 15], 
+	"dangers": [[16, 14], [16, 10], [0, 4], [4, 1], [23, 2], [6, 5], [13, 16], [22, 3], [27, 3], [11, 11], [28, 9], [20, 15]], 
+	"trapped": [[4, 13], [28, 11], [28, 5]]
+}
+
+la salida obtenida para el algoritmo A* sería:
+
+Rescuing person at position (4, 13)
+-----------------------------------
+Generated nodes: 148
+Expanded nodes: 37
+Execution time: 0.00490974499996355 seconds
+Solution length: 15
+Solution cost: 15.0
+Solution: [UP, UP, UP, UP, UP, UP, UP, UP, UP, UP, UP, UP, UP, LEFT, LEFT]
+
+Rescuing person at position (28, 11)
+------------------------------------
+Generated nodes: 183
+Expanded nodes: 46
+Execution time: 0.004582150000032925 seconds
+Solution length: 15
+Solution cost: 15.0
+Solution: [DOWN, DOWN, LEFT, DOWN, DOWN, DOWN, DOWN, DOWN, DOWN, DOWN, DOWN, DOWN, LEFT, LEFT, LEFT]
+
+Rescuing person at position (28, 5)
+-----------------------------------
+Generated nodes: 420
+Expanded nodes: 108
+Execution time: 0.0122461180000073 seconds
+Solution length: 21
+Solution cost: 21.0
+Solution: [DOWN, DOWN, LEFT, DOWN, DOWN, DOWN, DOWN, DOWN, DOWN, DOWN, DOWN, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, LEFT, DOWN, LEFT]
+
+
+Final statistics
+----------------
+Number of rescued people: 3 of 3
+Mean number of generated nodes: 250.33333333333334
+Mean number of expanded nodes: 63.666666666666664
+Mean execution time: 0.007246004333334592 seconds
+Mean solution length: 17
+Mean solution cost: 17.0
+
+
+Notas:
+- Se asume que el orden de las acciones se realizan en el orden ['UP','RIGHT','DOWN','LEFT']
+- La solución a la búsqueda, es decir la salida del método de búsqueda de la clase Search/Búsquea deber ser una lista (un list en python) con las acciones llevadas a cabo para ir desde el origen al destino, p.ej. ['UP','RIGHT','DOWN','LEFT']. Esta lista es que asume como entrada el programa 'plot_paths_in_png.py'.
